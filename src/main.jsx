@@ -13,6 +13,7 @@ import Cart from './pages/Cart';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import ErrorPage from './pages/ErrorPage';
+import UpdateProduct from './pages/UpdateProduct';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/addProduct",
         element: <AddProduct />,
+      },
+      {
+        path: "/updateProduct",
+        element: <UpdateProduct />,
       },
       {
         path: "/cart",
