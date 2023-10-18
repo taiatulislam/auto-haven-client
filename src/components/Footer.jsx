@@ -2,7 +2,7 @@
 
 const Footer = () => {
     return (
-        <div>
+        <div className="border-2 border-base-300 rounded-t-lg">
             <div className="max-w-7xl mx-auto mt-10">
                 <div className="text-center">
                     <img src="https://i.ibb.co/nwnDrg5/car-logo.png" alt="" className="w-[200px] mx-auto" />
