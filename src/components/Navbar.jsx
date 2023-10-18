@@ -26,7 +26,10 @@ const Navbar = () => {
                     </div>
                     <div className="flex items-center font-semibold font-serif">
                         <img src='https://i.ibb.co/SJrWC87/car-logo.png' alt="" className="h-[70px] w-[120px]" />
-                        <p className="normal-case text-2xl">Auto Haven</p>
+                        <div>
+                            <p className="normal-case text-2xl">Auto <span className="text-[#fd9c01]">Haven</span></p>
+                            <p className="text-xs">Bringing Dreams to Driveways</p>
+                        </div>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
