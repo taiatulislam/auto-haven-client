@@ -5,14 +5,13 @@ import { useNavigate } from "react-router-dom";
 const PopularBrands = () => {
 
     const [brands, setBrands] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch('/brands.json')
             .then(res => res.json())
             .then(data => setBrands(data))
     }, [])
-
-    const navigate = useNavigate();
 
     const handleClick = name => {
         navigate(`/brandDetails/${name.toLowerCase()}`)

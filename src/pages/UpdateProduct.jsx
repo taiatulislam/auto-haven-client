@@ -1,5 +1,16 @@
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const UpdateProduct = () => {
+
+    const update = useParams();
+    console.log(update.id);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/${update.id}`)
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }, [])
 
     const handleUpdate = event => {
         event.preventDefault();

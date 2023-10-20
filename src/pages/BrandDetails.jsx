@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Caurosal from "../components/Caurosal";
 
 
@@ -7,6 +7,7 @@ const BrandDetails = () => {
 
     const [cars, setCars] = useState([])
     const brand = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:5000/${brand.name}`)
@@ -14,7 +15,14 @@ const BrandDetails = () => {
             .then(data => setCars(data))
     }, [])
 
-    console.log(cars);
+
+    const handleUpdate = id => {
+        navigate(`/updateProduct/${id}`)
+    }
+
+    const handleDetails = id => {
+        navigate(`/carDetails/${id}`)
+    }
 
     return (
         <div>
@@ -37,8 +45,8 @@ const BrandDetails = () => {
                                         <p className="text-lg"><span className="font-semibold">Car Price: $</span> {car.price}</p>
                                         <p className="text-lg"><span className="font-semibold">Rating:</span> {car.rating}</p>
                                         <div className="flex gap-5">
-                                            <button className="bg-[#fd9c01] text-white p-2 w-full rounded-lg">Update</button>
-                                            <button className="bg-[#fd9c01] text-white p-2 w-full rounded-lg">Details</button>
+                                            <button onClick={() => handleDetails(car._id, car.brandName)} className="bg-[#fd9c01] text-white p-2 w-full rounded-lg">Details</button>
+                                            <button onClick={() => handleUpdate(car._id)} className="bg-[#fd9c01] text-white p-2 w-full rounded-lg">Update</button>
                                         </div>
                                     </div>
                                 </div>)

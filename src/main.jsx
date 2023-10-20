@@ -15,6 +15,7 @@ import SignIn from './pages/SignIn';
 import ErrorPage from './pages/ErrorPage';
 import UpdateProduct from './pages/UpdateProduct';
 import BrandDetails from './pages/BrandDetails';
+import CarDetails from './pages/CarDetails';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
         element: <AddProduct />,
       },
       {
-        path: "/updateProduct",
+        path: "/updateProduct/:id",
         element: <UpdateProduct />,
       },
       {
@@ -49,6 +50,11 @@ const router = createBrowserRouter([
       {
         path: "/brandDetails/:name",
         element: <BrandDetails />,
+      },
+      {
+        path: "/carDetails/:id",
+        element: <CarDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`)
       },
     ],
   },
