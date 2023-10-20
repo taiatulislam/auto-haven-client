@@ -1,19 +1,11 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Caurosal from "../components/Caurosal";
 
 
 const BrandDetails = () => {
 
-    const [cars, setCars] = useState([])
-    const brand = useParams();
     const navigate = useNavigate();
-
-    useEffect(() => {
-        fetch(`http://localhost:5000/${brand.name}`)
-            .then(res => res.json())
-            .then(data => setCars(data))
-    }, [])
+    const cars = useLoaderData();
 
 
     const handleUpdate = id => {

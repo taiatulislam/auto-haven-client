@@ -1,4 +1,4 @@
-
+import Swal from 'sweetalert2'
 
 const AddProduct = () => {
 
@@ -16,6 +16,25 @@ const AddProduct = () => {
         const add = { name, brandName, category, image, price, rating, details }
 
         console.log(add);
+
+        fetch('http://localhost:5000/', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(add)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Car Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                })
+                form.reset();
+            })
     }
 
     return (
@@ -28,36 +47,29 @@ const AddProduct = () => {
                         <div className="flex flex-col w-1/2 gap-4 px-10">
                             <label>
                                 <p className="mb-2">Name:</p>
-                                <input type="text" name="name" className="w-full p-2" />
+                                <input type="text" name="name" placeholder="Your Name" className="w-full p-2" />
                             </label>
-                            <label className="my-3">
+                            <label>
                                 <p className="mb-2">Brand Name:</p>
-                                <select className="w-full p-2">
-                                    <option value="toyota">Toyota</option>
-                                    <option value="ford">Ford</option>
-                                    <option value="bmw">BMW</option>
-                                    <option value="mercedes">Mercedes</option>
-                                    <option value="tesla">Tesla</option>
-                                    <option value="honda">Honda</option>
-                                </select>
+                                <input type="text" name="brandName" placeholder="Brand Name (Toyota, Ford etc)" className="w-full p-2" />
                             </label>
                             <label>
                                 <p className="mb-2">Category:</p>
-                                <input type="text" name="category" className="w-full p-2" />
+                                <input type="text" name="category" placeholder="Category Name" className="w-full p-2" />
                             </label>
                         </div>
                         <div className="flex flex-col w-1/2 gap-4 px-10">
                             <label>
                                 <p className="mb-2">Image:</p>
-                                <input type="text" name="image" className="w-full p-2" />
+                                <input type="text" name="image" placeholder="Photo URL" className="w-full p-2" />
                             </label>
                             <label className="my-3">
                                 <p className="mb-2">price:</p>
-                                <input type="text" name="price" className="w-full p-2" />
+                                <input type="number" name="price" placeholder="Car Price" className="w-full p-2" />
                             </label>
                             <label>
                                 <p className="mb-2">Rating:</p>
-                                <input type="text" name="rating" className="w-full p-2" />
+                                <input type="number" name="rating" placeholder="Give between 1-5" className="w-full p-2" />
                             </label>
                         </div>
                     </div>
