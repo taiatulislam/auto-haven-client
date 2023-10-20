@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const PopularBrands = () => {
@@ -11,6 +12,12 @@ const PopularBrands = () => {
             .then(data => setBrands(data))
     }, [])
 
+    const navigate = useNavigate();
+
+    const handleClick = name => {
+        navigate(`/brandDetails/${name.toLowerCase()}`)
+    }
+
     return (
         <div className="max-w-7xl mx-auto py-16">
             <h2 className="text-5xl font-bold text-center">Popular Brands</h2>
@@ -18,7 +25,7 @@ const PopularBrands = () => {
             <div className="grid grid-cols-3 gap-10">
                 {
                     brands.map(brand =>
-                        <div key={brand.id} className="card card-compact bg-base-100 shadow-xl">
+                        <div key={brand.id} onClick={() => { handleClick(brand.name) }} className="card card-compact bg-base-100 shadow-xl">
                             <figure><img src={brand.image} alt="Brand" className='h-[225px]' /></figure>
                             <div className="card-body">
                                 <h2 className="text-center text-2xl font-serif font-semibold">{brand.name}</h2>

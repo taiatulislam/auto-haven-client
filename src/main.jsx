@@ -14,6 +14,7 @@ import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import ErrorPage from './pages/ErrorPage';
 import UpdateProduct from './pages/UpdateProduct';
+import BrandDetails from './pages/BrandDetails';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/signIn",
         element: <SignIn />,
+      },
+      {
+        path: "/brandDetails/:name",
+        element: <BrandDetails />,
       },
     ],
   },

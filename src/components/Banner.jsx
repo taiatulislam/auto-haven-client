@@ -9,7 +9,7 @@ const Banner = () => {
                     <p className="mb-5 text-lg font-medium text-justify">
                         Auto Haven, your ultimate destination for exceptional cars, is delighted to welcome you. Discover a wide range of vehicles meticulously selected to elevate your driving experience. Our commitment to quality and customer satisfaction is at the core of everything we do. Begin your journey with us and find the perfect ride that matches your aspirations and style. At Auto Haven, we are dedicated to turning your automotive dreams into reality.</p>
 
-                    <p className="text-5xl font-semibold mt-20 "><span className="text-[#fd9c01]">Call:</span>+99 9033 204</p>
+                    <p className="text-5xl font-semibold mt-20 "><span className="text-[#fd9c01]">Call: </span>+99 9033 204</p>
                 </div>
             </div>
         </div>
