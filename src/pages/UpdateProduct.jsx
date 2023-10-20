@@ -1,16 +1,9 @@
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const UpdateProduct = () => {
 
-    const update = useParams();
-    console.log(update.id);
-
-    useEffect(() => {
-        fetch(`http://localhost:5000/${update.id}`)
-            .then(res => res.json())
-            .then(data => console.log(data))
-    }, [])
+    const update = useLoaderData();
 
     const handleUpdate = event => {
         event.preventDefault();
@@ -23,9 +16,29 @@ const UpdateProduct = () => {
         const rating = form.rating.value;
         const details = form.details.value;
 
-        const add = { name, brandName, category, image, price, rating, details }
+        const updateCar = { name, brandName, category, image, price, rating, details }
 
-        console.log(add);
+        console.log(updateCar);
+
+        fetch(`http://localhost:5000/${update._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateCar)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Car Updated Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                }
+            })
     }
 
     return (
@@ -39,47 +52,40 @@ const UpdateProduct = () => {
                             <div className="flex flex-col w-1/2 gap-4 px-10">
                                 <label>
                                     <p className="mb-2">Name:</p>
-                                    <input type="text" name="name" className="w-full p-2" />
+                                    <input type="text" name="name" defaultValue={update.name} className="w-full p-2" />
                                 </label>
-                                <label className="my-3">
+                                <label>
                                     <p className="mb-2">Brand Name:</p>
-                                    <select className="w-full p-2">
-                                        <option value="toyota">Toyota</option>
-                                        <option value="ford">Ford</option>
-                                        <option value="bmw">BMW</option>
-                                        <option value="mercedes">Mercedes</option>
-                                        <option value="tesla">Tesla</option>
-                                        <option value="honda">Honda</option>
-                                    </select>
+                                    <input type="text" name="brandName" defaultValue={update.brandName} className="w-full p-2" />
                                 </label>
                                 <label>
                                     <p className="mb-2">Category:</p>
-                                    <input type="text" name="category" className="w-full p-2" />
+                                    <input type="text" name="category" defaultValue={update.category} className="w-full p-2" />
                                 </label>
                             </div>
                             <div className="flex flex-col w-1/2 gap-4 px-10">
                                 <label>
                                     <p className="mb-2">Image:</p>
-                                    <input type="text" name="image" className="w-full p-2" />
+                                    <input type="text" name="image" defaultValue={update.image} className="w-full p-2" />
                                 </label>
                                 <label className="my-3">
                                     <p className="mb-2">price:</p>
-                                    <input type="text" name="price" className="w-full p-2" />
+                                    <input type="text" name="price" defaultValue={update.price} className="w-full p-2" />
                                 </label>
                                 <label>
                                     <p className="mb-2">Rating:</p>
-                                    <input type="text" name="rating" className="w-full p-2" />
+                                    <input type="text" name="rating" defaultValue={update.rating} className="w-full p-2" />
                                 </label>
                             </div>
                         </div>
                         <div className="px-10 mt-5">
                             <label>
                                 <p className="mb-2">Details:</p>
-                                <textarea name="details" rows={4} cols={160} />
+                                <textarea name="details" defaultValue={update.details} rows={4} cols={160} />
                             </label>
                         </div>
                         <div className="mt-5 px-10">
-                            <input type="submit" value="Add" className="btn normal-case bg-[#fd9c01c9] w-full p-2" />
+                            <input type="submit" value="Update" className="btn normal-case bg-[#fd9c01c9] w-full" />
                         </div>
                     </form>
                 </div>
