@@ -68,19 +68,15 @@ const SignUp = () => {
                     icon: 'error',
                     confirmButtonText: 'OK'
                 })
-
-            }
-            )
+            })
     }
 
     return (
-        <div className='bg-[#fd9c0180] py-3'>
+        <div className='py-3' style={{ backgroundImage: 'url(https://i.ibb.co/wdbqWhv/auto-cover.jpg)', backgroundPosition: 'center center' }}>
             <div className='flex flex-col md:flex-row rounded-lg max-w-5xl mx-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.6)]'>
-                <div className='w-full md:w-1/2'>
-                    <img src='https://i.ibb.co/sHpCt6B/bmw-7-series.png' alt="" className='h-screen' />
-                </div>
-                <div className='bg-white w-full md:w-1/2 pb-5'>
-                    <h2 className='text-4xl font-semibold text-center my-5 text-[#fd9c01]'>Register Here</h2>
+                <div className='bg-white bg-opacity-70 w-full mx-auto md:w-1/2 pb-5'>
+                    <h2 className="text-5xl font-bold text-center mt-3">Register Here</h2>
+                    <p className="text-center text-5xl text-[#fd9c01]">-------------</p>
                     <form className='px-10' onSubmit={handleSubmit}>
                         <div className="form-control">
                             <label className="label">

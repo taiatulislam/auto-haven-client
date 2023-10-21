@@ -47,12 +47,12 @@ const Navbar = () => {
                         user ?
                             <div className="flex flex-row items-center">
                                 <img src={user?.photoURL} alt="profile" className="w-[40px] h-[40px] rounded-full mr-3" />
-                                <p><span className="md:mr-3 text-xs md:text-md lg:text-lg font-semibold">{user.email}</span></p>
+                                <p><span className="md:mr-3 text-xs md:text-md lg:text-lg font-semibold">{user?.displayName}</span></p>
                             </div>
                             :
                             <div className="flex gap-3">
                                 <Link to='/signUp'><p className="btn normal-case border-2 border-[#fd9c01]">Sign Up</p></Link>
-                                <a className="btn normal-case border-2 border-[#fd9c01]">Sign In</a>
+                                <Link to='/signIn'><p className="btn normal-case border-2 border-[#fd9c01]">Sign In</p></Link>
                             </div>
                     }
 
