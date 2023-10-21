@@ -1,4 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
     const links = <>
@@ -12,6 +14,9 @@ const Navbar = () => {
             return { backgroundColor: isActive ? "#fd9c01" : "", color: isActive ? 'white' : 'black' }
         }}>My Cart</NavLink></li>
     </>
+
+    const { user } = useContext(AuthContext);
+
     return (
         <div className="bg-base-100">
             <div className="navbar max-w-7xl mx-auto">
@@ -38,8 +43,19 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-3">
-                    <a className="btn normal-case border-2 border-[#fd9c01]">Sign Up</a>
-                    <a className="btn normal-case border-2 border-[#fd9c01]">Sign In</a>
+                    {
+                        user ?
+                            <div className="flex flex-row items-center">
+                                <img src={user?.photoURL} alt="profile" className="w-[40px] h-[40px] rounded-full mr-3" />
+                                <p><span className="md:mr-3 text-xs md:text-md lg:text-lg font-semibold">{user.email}</span></p>
+                            </div>
+                            :
+                            <div className="flex gap-3">
+                                <Link to='/signUp'><p className="btn normal-case border-2 border-[#fd9c01]">Sign Up</p></Link>
+                                <a className="btn normal-case border-2 border-[#fd9c01]">Sign In</a>
+                            </div>
+                    }
+
                 </div>
             </div>
         </div>
