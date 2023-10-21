@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "image": "https://i.ibb.co/fX3qNzk/upcomming-1.png",
+        "name": "Ferrari SF90 XX"
+    },
+    {
+        "id": 2,
+        "image": "https://i.ibb.co/tB11RV6/upcomming-2.png",
+        "name": "Lamborghini URUS"
+    },
+    {
+        "id": 3,
+        "image": "https://i.ibb.co/RP24Sd0/upcomming-3.png",
+        "name": "Lamborghini Hurcan"
+    },
+    {
+        "id": 4,
+        "image": "https://i.ibb.co/QpbF18Z/upcomming-4.png",
+        "name": "Bently Flying Spur"
+    }
+]

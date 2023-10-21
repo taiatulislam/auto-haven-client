@@ -46,7 +46,7 @@ const BrandDetails = () => {
                         </div>
                         :
                         <div>
-                            <figure><img src='https://i.ibb.co/ZGMbjH3/2953962.jpg' alt="Brand" className='' /></figure>
+                            <figure><img src='https://i.ibb.co/ZGMbjH3/2953962.jpg' alt="No data" className='' /></figure>
                         </div>}
                 </div>
             </div>

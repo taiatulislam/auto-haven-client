@@ -13,9 +13,16 @@ const Navbar = () => {
         <li><NavLink to='/cart' style={({ isActive }) => {
             return { backgroundColor: isActive ? "#fd9c01" : "", color: isActive ? 'white' : 'black' }
         }}>My Cart</NavLink></li>
+        <li><NavLink to='/about' style={({ isActive }) => {
+            return { backgroundColor: isActive ? "#fd9c01" : "", color: isActive ? 'white' : 'black' }
+        }}>About Us</NavLink></li>
     </>
 
-    const { user } = useContext(AuthContext);
+    const { user, signout } = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        return signout();
+    }
 
     return (
         <div className="bg-base-100">
@@ -48,6 +55,7 @@ const Navbar = () => {
                             <div className="flex flex-row items-center">
                                 <img src={user?.photoURL} alt="profile" className="w-[40px] h-[40px] rounded-full mr-3" />
                                 <p><span className="md:mr-3 text-xs md:text-md lg:text-lg font-semibold">{user?.displayName}</span></p>
+                                <button onClick={handleSignOut} className="btn normal-case font-semibold border-2 border-black py-2 px-5 rounded-lg">Sign Out</button>
                             </div>
                             :
                             <div className="flex gap-3">
@@ -55,7 +63,6 @@ const Navbar = () => {
                                 <Link to='/signIn'><p className="btn normal-case border-2 border-[#fd9c01]">Sign In</p></Link>
                             </div>
                     }
-
                 </div>
             </div>
         </div>
