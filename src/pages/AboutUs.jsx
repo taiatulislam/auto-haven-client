@@ -2,7 +2,7 @@
 const AboutUs = () => {
     return (
         <div className="max-w-7xl mx-auto mb-10 text-justify px-5">
-            <h2 className="text-5xl font-bold text-center">About Us</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-center mt-5">About Us</h2>
             <p className="text-center text-5xl text-[#fd9c01] mb-10">-------------</p>
 
             <p>At Auto Haven, we are not just in the business of selling cars; we are in the business of making dreams come true. Our journey began with a passion for automobiles and a commitment to providing the best automotive solutions to our customers. Now, we are thrilled to extend that passion to you through our newly opened online car shop.</p>

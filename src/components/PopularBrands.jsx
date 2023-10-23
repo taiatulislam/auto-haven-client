@@ -19,9 +19,9 @@ const PopularBrands = () => {
 
     return (
         <div className="max-w-7xl mx-auto py-16">
-            <h2 className="text-5xl font-bold text-center">Popular Brands</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-center">Popular Brands</h2>
             <p className="text-center text-5xl text-[#fd9c01] mb-10">-------------</p>
-            <div className="grid grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 px-5 lg:grid-cols-3 gap-10">
                 {
                     brands.map(brand =>
                         <div key={brand.id} onClick={() => { handleClick(brand.name) }} className="card card-compact bg-base-100 shadow-xl">
