@@ -1,9 +1,10 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 const UpdateProduct = () => {
 
     const update = useLoaderData();
+    const navigate = useNavigate();
 
     const handleUpdate = event => {
         event.preventDefault();
@@ -18,7 +19,7 @@ const UpdateProduct = () => {
 
         const updateCar = { name, brandName, category, image, price, rating, details }
 
-        fetch(`http://localhost:5000/${update._id}`, {
+        fetch(`http://localhost:5000/cars/${update._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -35,6 +36,7 @@ const UpdateProduct = () => {
                         icon: 'success',
                         confirmButtonText: 'OK'
                     })
+                    navigate(`/brandDetails/${update.brandName}`)
                 }
             })
     }
@@ -43,7 +45,7 @@ const UpdateProduct = () => {
         <div>
             <div className="bg-base-300">
                 <div className="max-w-7xl mx-auto py-10">
-                    <h2 className="text-5xl font-bold text-center">Update Product</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-center">Update Product</h2>
                     <p className="text-center text-5xl text-[#fd9c01] mb-5">-------------</p>
                     <form onSubmit={handleUpdate}>
                         <div className="flex gap-5">
@@ -79,11 +81,11 @@ const UpdateProduct = () => {
                         <div className="px-10 mt-5">
                             <label>
                                 <p className="mb-2">Details:</p>
-                                <textarea name="details" defaultValue={update.details} rows={4} cols={160} />
+                                <textarea name="details" defaultValue={update.details} rows={4} className="w-full p-2" />
                             </label>
                         </div>
                         <div className="mt-5 px-10">
-                            <input type="submit" value="Update" className="btn normal-case bg-[#fd9c01c9] w-full" />
+                            <input type="submit" value="Update" className="btn normal-case text-white bg-[#fd9c01c9] w-full" />
                         </div>
                     </form>
                 </div>

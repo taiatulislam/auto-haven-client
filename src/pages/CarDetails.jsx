@@ -1,16 +1,18 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 import { AuthContext } from "../providers/AuthProvider";
 
 const CarDetails = () => {
     const car = useLoaderData();
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
-    Object.assign(car, { user: user?.email });
+    const handleCart = user => {
 
-    const handleCart = (email) => {
-        fetch('http://localhost:5000/', {
+        Object.assign(car, { user: user });
+
+        fetch('http://localhost:5000/cart/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -27,6 +29,7 @@ const CarDetails = () => {
                         icon: 'success',
                         confirmButtonText: 'OK'
                     })
+                    navigate(`/brandDetails/${car.brandName}`)
                 }
             })
     }
@@ -40,7 +43,7 @@ const CarDetails = () => {
             <p className="text-lg"><span className="font-semibold">Car Price: $</span> {car.price}</p>
             <p className="text-lg my-3"><span className="font-semibold">Rating:</span> {car.rating}</p>
             <p className="text-lg"><span className="font-semibold">Details:</span> {car.details}</p>
-            <button onClick={() => handleCart(user.email)} className="btn normal-case text-white bg-[#fd9c01] w-full mt-3">Add to Cart</button>
+            <button onClick={() => handleCart(user?.email)} className="btn normal-case text-white bg-[#fd9c01] w-full mt-3">Add to Cart</button>
         </div>
     );
 };

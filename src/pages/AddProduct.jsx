@@ -15,9 +15,7 @@ const AddProduct = () => {
 
         const add = { name, brandName, category, image, price, rating, details }
 
-        console.log(add);
-
-        fetch('http://localhost:5000/', {
+        fetch('http://localhost:5000/cars/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -49,40 +47,40 @@ const AddProduct = () => {
                         <div className="flex flex-col w-full lg:w-1/2 gap-4 px-10">
                             <label>
                                 <p className="mb-2">Name:</p>
-                                <input type="text" name="name" placeholder="Your Name" className="w-full p-2" />
+                                <input type="text" name="name" placeholder="Your Name" className="w-full p-2" required />
                             </label>
                             <label>
                                 <p className="mb-2">Brand Name:</p>
-                                <input type="text" name="brandName" placeholder="Brand Name (Toyota, Ford etc)" className="w-full p-2" />
+                                <input type="text" name="brandName" placeholder="Brand Name (Toyota, Ford etc)" className="w-full p-2" required />
                             </label>
                             <label>
                                 <p className="mb-2">Category:</p>
-                                <input type="text" name="category" placeholder="Category Name" className="w-full p-2" />
+                                <input type="text" name="category" placeholder="Category Name" className="w-full p-2" required />
                             </label>
                         </div>
                         <div className="flex flex-col w-full lg:w-1/2 gap-4 px-10">
                             <label>
                                 <p className="mb-2">Image:</p>
-                                <input type="text" name="image" placeholder="Photo URL" className="w-full p-2" />
+                                <input type="text" name="image" placeholder="Photo URL" className="w-full p-2" required />
                             </label>
-                            <label className="my-3">
-                                <p className="mb-2">price:</p>
-                                <input type="number" name="price" placeholder="Car Price" className="w-full p-2" />
+                            <label>
+                                <p className="mb-2">Price:</p>
+                                <input type="number" name="price" placeholder="Car Price" className="w-full p-2" required />
                             </label>
                             <label>
                                 <p className="mb-2">Rating:</p>
-                                <input type="number" name="rating" placeholder="Give between 1-5" className="w-full p-2" />
+                                <input type="number" name="rating" placeholder="Give between 1-5" className="w-full p-2" required />
                             </label>
                         </div>
                     </div>
                     <div className="px-10 mt-5">
                         <label>
                             <p className="mb-2">Details:</p>
-                            <textarea name="details" rows={4} className='w-full' />
+                            <textarea name="details" rows={4} className='w-full p-2' required />
                         </label>
                     </div>
                     <div className="mt-5 px-10">
-                        <input type="submit" value="Add" className="btn normal-case bg-[#fd9c01c9] w-full p-2" />
+                        <input type="submit" value="Add" className="btn normal-case text-white bg-[#fd9c01c9] w-full p-2" />
                     </div>
                 </form>
             </div>

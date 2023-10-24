@@ -7,7 +7,6 @@ const BrandDetails = () => {
     const navigate = useNavigate();
     const cars = useLoaderData();
 
-
     const handleUpdate = id => {
         navigate(`/updateProduct/${id}`)
     }
@@ -46,7 +45,7 @@ const BrandDetails = () => {
                         </div>
                         :
                         <div>
-                            <figure><img src='https://i.ibb.co/ZGMbjH3/2953962.jpg' alt="No data" /></figure>
+                            <figure><img src='https://i.ibb.co/ZGMbjH3/2953962.jpg' alt="No data" className="w-1/2 mx-auto" /></figure>
                         </div>}
                 </div>
             </div>

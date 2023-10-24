@@ -37,12 +37,12 @@ const router = createBrowserRouter([
       {
         path: "/updateProduct/:id",
         element: <PrivateRoute><UpdateProduct /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`)
       },
       {
-        path: "/cart/:email",
+        path: "/cart",
         element: <PrivateRoute><Cart /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/${params.email}`)
+        loader: () => fetch('http://localhost:5000/cart')
       },
       {
         path: "/about",
@@ -59,12 +59,12 @@ const router = createBrowserRouter([
       {
         path: "/brandDetails/:name",
         element: <PrivateRoute><BrandDetails /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/${params.name}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.name}`)
       },
       {
         path: "/carDetails/:id",
         element: <CarDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`)
       },
     ],
   },
