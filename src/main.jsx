@@ -37,12 +37,12 @@ const router = createBrowserRouter([
       {
         path: "/updateProduct/:id",
         element: <PrivateRoute><UpdateProduct /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`)
+        loader: ({ params }) => fetch(`https://auto-haven-server-hdc371zlv-md-taiatul-islam-apons-projects.vercel.app/cars/${params.id}`)
       },
       {
         path: "/cart",
         element: <PrivateRoute><Cart /></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/cart')
+        loader: () => fetch('https://auto-haven-server-hdc371zlv-md-taiatul-islam-apons-projects.vercel.app/cart')
       },
       {
         path: "/about",
@@ -59,12 +59,12 @@ const router = createBrowserRouter([
       {
         path: "/brandDetails/:name",
         element: <PrivateRoute><BrandDetails /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.name}`)
+        loader: ({ params }) => fetch(`https://auto-haven-server-hdc371zlv-md-taiatul-islam-apons-projects.vercel.app/cars/${params.name}`)
       },
       {
         path: "/carDetails/:id",
         element: <CarDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/cars/${params.id}`)
+        loader: ({ params }) => fetch(`https://auto-haven-server-hdc371zlv-md-taiatul-islam-apons-projects.vercel.app/cars/${params.id}`)
       },
     ],
   },

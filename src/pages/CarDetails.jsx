@@ -12,7 +12,7 @@ const CarDetails = () => {
 
         Object.assign(car, { user: user });
 
-        fetch('http://localhost:5000/cart/', {
+        fetch('https://auto-haven-server-hdc371zlv-md-taiatul-islam-apons-projects.vercel.app/cart/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

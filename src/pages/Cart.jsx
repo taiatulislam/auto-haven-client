@@ -8,7 +8,7 @@ const Cart = () => {
     const [loadData, setLoadData] = useState(cartData);
 
     const handleRemove = id => {
-        fetch(`http://localhost:5000/cart/${id}`, {
+        fetch(`https://auto-haven-server-hdc371zlv-md-taiatul-islam-apons-projects.vercel.app/cart/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

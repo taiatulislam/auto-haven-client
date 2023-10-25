@@ -15,7 +15,7 @@ const AddProduct = () => {
 
         const add = { name, brandName, category, image, price, rating, details }
 
-        fetch('http://localhost:5000/cars/', {
+        fetch('https://auto-haven-server-hdc371zlv-md-taiatul-islam-apons-projects.vercel.app/cars/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -69,7 +69,7 @@ const AddProduct = () => {
                             </label>
                             <label>
                                 <p className="mb-2">Rating:</p>
-                                <input type="number" name="rating" placeholder="Give between 1-5" className="w-full p-2" required />
+                                <input type="text" name="rating" placeholder="Give between 1-5" className="w-full p-2" required />
                             </label>
                         </div>
                     </div>

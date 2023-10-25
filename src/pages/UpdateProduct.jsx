@@ -19,7 +19,7 @@ const UpdateProduct = () => {
 
         const updateCar = { name, brandName, category, image, price, rating, details }
 
-        fetch(`http://localhost:5000/cars/${update._id}`, {
+        fetch(`https://auto-haven-server-hdc371zlv-md-taiatul-islam-apons-projects.vercel.app/cars/${update._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -70,7 +70,7 @@ const UpdateProduct = () => {
                                 </label>
                                 <label className="my-3">
                                     <p className="mb-2">price:</p>
-                                    <input type="text" name="price" defaultValue={update.price} className="w-full p-2" />
+                                    <input type="number" name="price" defaultValue={update.price} className="w-full p-2" />
                                 </label>
                                 <label>
                                     <p className="mb-2">Rating:</p>
