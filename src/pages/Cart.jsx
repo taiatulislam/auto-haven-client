@@ -37,8 +37,8 @@ const Cart = () => {
                     loadData.length ?
                         <div className="grid grid-cols-2 gap-10">
                             {loadData.map(car =>
-                                <div key={car._id} className="card flex-row card-compact bg-base-100 shadow-xl">
-                                    <figure><img src={car.image} alt="Brand" className='w-[400px] h-[220px] rounded-lg' /></figure>
+                                <div key={car._id} className="card flex-row card-compact bg-base-100 shadow-xl h-[220px]">
+                                    <figure><img src={car.image} alt="Brand" className='w-[400px] h-full rounded-lg' /></figure>
                                     <div className="card-body">
                                         <h2 className="text-center text-2xl font-serif font-semibold">{car.name}</h2>
                                         <p className="text-center text-xl font-serif font-semibold">{car.category}</p>
